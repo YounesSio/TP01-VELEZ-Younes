@@ -64,11 +64,36 @@
                     }
                 },
                 messages: {
+                    nom: {
+                        required: "Ce champ est requis.",
+                        minlength: "Veuillez entrer un nom d'au moins 3 caractères."
+                    },
+                    prenom: {
+                        required: "Ce champ est requis.",
+                        minlength: "Veuillez entrer un prenom d'au moins 3 caractères."
+                    },
+                    adresse: {
+                        required: "Ce champ est requis.",
+                        minlength: "Veuillez entrer une adresse d'au moins 3 caractères."
+                    },
+                    cp: {
+                        required: "Ce champ est requis.",
+                        minlength: "Veuillez entrer un code postal d'au moins 5 chiffres."
+                    },
+                    email: {
+                        email: "Email non valide.",
+                        minlength: "Veuillez entrer un email d'au moins 3 caractères."
+                    },
+                    login: {
+                        required: "Ce champ est requis.",
+                        minlength: "Veuillez entrer un login d'au moins 3 caractères."
+                    },
                     mdp: {
+                        minlength: "Veuillez entrer un mot de passe d'au moins 5 caractères.",
                         checklower: "Il faut une lettre en minuscule",
                         checkupper: "Il faut une lettre en majuscule",
                         checkdigit: "Il faut un chiffre"
-                    }
+                    },                 
                 },
                 errorElement: 'span',
                 errorClass: 'validate_cus'
@@ -105,9 +130,9 @@
             <p><br />
                 Civilité :<br />
 
-                <input type="radio" name="civilité" value="Mlle" id="Mlle" /> <label for="Mlle">Mlle</label>
-                <input type="radio" name="civilité" value="Mme" id="Mme" /> <label for="Mme">Mme</label>
-                <input type="radio" name="civilité" value="M." id="M." /> <label for="M.">M.</label>
+                <input type="radio" name="civilite" value="Mlle" id="Mlle" /> <label for="Mlle">Mlle</label>
+                <input type="radio" name="civilite" value="Mme" id="Mme" /> <label for="Mme">Mme</label>
+                <input type="radio" name="civilite" value="M." id="M." /> <label for="M.">M.</label>
             </p>
 
             Login :<br />
