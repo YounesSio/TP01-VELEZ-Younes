@@ -13,7 +13,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <script>
-         $(document).ready(function () {
+
+
+        $.validator.addMethod("checklower", function (value) {
+            return /[a-z]/.test(value);
+        });
+        $.validator.addMethod("checkupper", function (value) {
+            return /[A-Z]/.test(value);
+        });
+        $.validator.addMethod("checkdigit", function (value) {
+            return /[0-9]/.test(value);
+        });
+
+        $(document).ready(function () {
+            var value = document.formSaisie.mdp.value;
+
             $("#mainForm").validate({
                 rules: {
                     nom: {
@@ -23,16 +37,16 @@
                     prenom: {
                         required: true,
                         minlength: 3
-                    },   
+                    },
                     adresse: {
                         required: true,
                         minlength: 3
-                    }, 
+                    },
                     cp: {
                         required: true,
-                        minlength: 3,
+                        minlength: 5,
                         number: true
-                    },               
+                    },
                     email: {
                         required: true,
                         email: true
@@ -40,15 +54,27 @@
                     login: {
                         required: true,
                         minlength: 3
-                    }, 
+                    },
                     mdp: {
                         required: true,
-                        minlength: 3
+                        minlength: 5,
+                        checklower: true,
+                        checkupper: true,
+                        checkdigit: true
                     }
-                }
+                },
+                messages: {
+                    mdp: {
+                        checklower: "Il faut une lettre en minuscule",
+                        checkupper: "Il faut une lettre en majuscule",
+                        checkdigit: "Il faut un chiffre"
+                    }
+                },
+                errorElement: 'span',
+                errorClass: 'validate_cus'
             });
         });
-        
+
     </script>
     <form name="formSaisie" id="mainForm">
         <fieldset>
